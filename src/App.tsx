@@ -1,7 +1,10 @@
-import React from 'react'
+import LinkedList from './classes/LinkedList/LinkedListB'
+import LinkedListVisualization from './components/LinkedList/LinkedListVisualization'
 
 const App = () => {
-  return <div>My App</div>
+  const linkedList = new LinkedList()
+
+  return <LinkedListVisualization linkedList={linkedList} />
 }
 
 export default App
