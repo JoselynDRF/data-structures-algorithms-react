@@ -30,6 +30,23 @@ class LinkedList {
       return
     }
   }
+
+  /**
+   * Prepends a new node at the start of the linked list
+   * @param data New data
+   */
+  prepend(data: LinkedListData) {
+    const newNode = new LinkedListNode(data, this.head)
+
+    this.head = newNode
+
+    // If there is no tail, then make new node a tail
+    if (!this.tail) {
+      this.tail = newNode
+    }
+
+    return
+  }
 }
 
 export default LinkedList

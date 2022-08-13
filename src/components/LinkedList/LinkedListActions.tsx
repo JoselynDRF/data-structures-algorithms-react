@@ -11,8 +11,8 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState('')
 
-  const appendItem = () => {
-    linkedList.append(inputValue)
+  const appendItem = (action: string) => {
+    linkedList[action](inputValue)
     printList()
     setInputValue('')
   }
@@ -24,8 +24,11 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
         value={inputValue}
         onChange={({ target: { value } }) => setInputValue(value)}
       />
-      <button onClick={appendItem} disabled={!inputValue}>
+      <button onClick={() => appendItem('append')} disabled={!inputValue}>
         Append
+      </button>
+      <button onClick={() => appendItem('prepend')} disabled={!inputValue}>
+        Prepend
       </button>
     </>
   )
