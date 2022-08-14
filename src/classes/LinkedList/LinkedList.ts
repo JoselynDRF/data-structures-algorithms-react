@@ -101,8 +101,56 @@ class LinkedList {
         currentNode = currentNode.next
       }
     }
+  }
 
-    return null
+  /**
+   * Deletes the first node of the linked list
+   */
+  deleteHead() {
+    if (this.head) {
+      const deletedHead = this.head
+      this.head = deletedHead.next
+    }
+  }
+
+  /**
+   * Deletes the last node of the linked list
+   */
+  deleteTail() {
+    let currentNode = this.head
+
+    if (currentNode?.next) {
+      while (currentNode.next?.next) {
+        currentNode = currentNode.next
+      }
+      currentNode.next = null
+    } else {
+      this.head = null
+    }
+  }
+
+  /**
+   * Deletes the first occurrence of value in linked list
+   * @param data Value to delete
+   */
+  delete(data: LinkedListData) {
+    if (this.head) {
+      let currentNode: ListNode = this.head
+
+      if (currentNode.data === data) {
+        this.head = currentNode.next
+        return
+      }
+
+      while (currentNode.next) {
+        if (currentNode.next.data === data) {
+          currentNode.next = currentNode.next.next
+          return
+        } else {
+          currentNode = currentNode.next
+        }
+      }
+    }
   }
 }
 

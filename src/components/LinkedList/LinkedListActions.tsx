@@ -45,6 +45,9 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
       <button onClick={() => appendItem('find')} disabled={!inputValue}>
         Find
       </button>
+      <button onClick={() => appendItem('deleteHead')}>Delete Head</button>
+      <button onClick={() => appendItem('deleteTail')}>Delete Tail</button>
+      <button onClick={() => appendItem('delete')}>Delete</button>
     </>
   )
 }
