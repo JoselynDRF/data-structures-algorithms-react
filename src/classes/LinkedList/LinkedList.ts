@@ -152,6 +152,27 @@ class LinkedList {
       }
     }
   }
+
+  reverse() {
+    let currentNode = this.head
+    let prevNode: ListNode = null
+    let nextNode: ListNode = null
+
+    while (currentNode) {
+      // Store next node
+      nextNode = currentNode.next
+
+      // Change next node of the current node so it would link to previous node
+      currentNode.next = prevNode
+
+      // Move prevNode and currentNode nodes one step forward
+      prevNode = currentNode
+      currentNode = nextNode
+
+      // Reset head
+      this.head = prevNode
+    }
+  }
 }
 
 export default LinkedList

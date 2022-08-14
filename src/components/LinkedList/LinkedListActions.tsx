@@ -48,6 +48,7 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
       <button onClick={() => appendItem('deleteHead')}>Delete Head</button>
       <button onClick={() => appendItem('deleteTail')}>Delete Tail</button>
       <button onClick={() => appendItem('delete')}>Delete</button>
+      <button onClick={() => appendItem('reverse')}>Reverse</button>
     </>
   )
 }
