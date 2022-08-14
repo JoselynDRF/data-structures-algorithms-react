@@ -11,4 +11,6 @@ type LinkedListProps = {
   tail?: ListNode
   append: (data: LinkedListData) => void
   prepend: (data: LinkedListData) => void
+  insertAfterNode: (data: LinkedListData, prevNode: ListNode) => void
+  insert: (data: LinkedListData, insertIndex: number) => void
 }

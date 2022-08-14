@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 
 type LinkedListActionsProps = {
   linkedList: LinkedListProps
-  printList: () => void
+  printList: (linkedListResult?: ListNode) => void
 }
 
 const LinkedListActions: FC<LinkedListActionsProps> = ({
@@ -11,9 +11,12 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState('')
 
-  const appendItem = (action: string) => {
-    linkedList[action](inputValue)
-    printList()
+  const appendItem = (
+    action: LinkedListData,
+    value?: ListNode | LinkedListData
+  ) => {
+    const linkedListResult = linkedList[action](inputValue, value)
+    printList(linkedListResult)
     setInputValue('')
   }
 
@@ -29,6 +32,18 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
       </button>
       <button onClick={() => appendItem('prepend')} disabled={!inputValue}>
         Prepend
+      </button>
+      <button
+        onClick={() => appendItem('insertAfterNode', linkedList.head?.next)}
+        disabled={!inputValue}
+      >
+        insert After 2º Node
+      </button>
+      <button onClick={() => appendItem('insert', 2)} disabled={!inputValue}>
+        insert index 2
+      </button>
+      <button onClick={() => appendItem('find')} disabled={!inputValue}>
+        Find
       </button>
     </>
   )

@@ -11,13 +11,23 @@ const LinkedListVisualization: FC<LinkedListVisualizationProps> = ({
 }) => {
   const [linkedListView, setLinkedListView] = useState<JSX.Element[]>()
 
-  const printList = () => {
-    let current = linkedList.head
+  const printList = (linkedListResult?: ListNode) => {
+    let currentNode = linkedList.head
     const text: JSX.Element[] = []
 
-    while (current != null) {
-      text.push(<span key={uuidv4()}>{current.data} &#8594; </span>)
-      current = current.next
+    while (currentNode != null) {
+      text.push(
+        <span
+          key={uuidv4()}
+          style={{
+            fontWeight:
+              linkedListResult?.data === currentNode.data ? 'bold' : 'normal'
+          }}
+        >
+          {currentNode.data} &#8594;{' '}
+        </span>
+      )
+      currentNode = currentNode.next
     }
 
     console.log('linkedList', linkedList)

@@ -1,4 +1,4 @@
-import LinkedList from './classes/LinkedList/LinkedListB'
+import LinkedList from './classes/LinkedList/LinkedList'
 import LinkedListVisualization from './components/LinkedList/LinkedListVisualization'
 
 const App = () => {
