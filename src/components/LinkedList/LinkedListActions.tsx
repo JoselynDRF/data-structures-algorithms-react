@@ -15,7 +15,9 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
     action: LinkedListData,
     value?: ListNode | LinkedListData
   ) => {
-    const linkedListResult = linkedList[action](inputValue, value)
+    const data = action === 'get' ? Number(inputValue) : inputValue
+    const linkedListResult = linkedList[action](data, value)
+
     printList(linkedListResult)
     setInputValue('')
   }
@@ -43,7 +45,10 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
         insert index 2
       </button>
       <button onClick={() => appendItem('find')} disabled={!inputValue}>
-        Find
+        Find by Value
+      </button>
+      <button onClick={() => appendItem('get')} disabled={!inputValue}>
+        Get by Index
       </button>
       <button onClick={() => appendItem('deleteHead')}>Delete Head</button>
       <button onClick={() => appendItem('deleteTail')}>Delete Tail</button>

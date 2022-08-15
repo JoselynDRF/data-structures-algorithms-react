@@ -104,6 +104,20 @@ class LinkedList {
   }
 
   /**
+   * Gets the node of the given index in the linked list
+   * @param index Index
+   */
+  get(index: number) {
+    let currentNode: ListNode = this.head
+
+    for (let i = 0; i < index; i++) {
+      currentNode = currentNode?.next || null
+    }
+
+    return currentNode
+  }
+
+  /**
    * Deletes the first node of the linked list
    */
   deleteHead() {
