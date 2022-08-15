@@ -15,7 +15,11 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
     action: LinkedListData,
     value?: ListNode | LinkedListData
   ) => {
-    const data = action === 'get' ? Number(inputValue) : inputValue
+    const data =
+      action === 'get' || action === 'deleteAtIndex'
+        ? Number(inputValue)
+        : inputValue
+
     const linkedListResult = linkedList[action](data, value)
 
     printList(linkedListResult)
@@ -53,6 +57,9 @@ const LinkedListActions: FC<LinkedListActionsProps> = ({
       <button onClick={() => appendItem('deleteHead')}>Delete Head</button>
       <button onClick={() => appendItem('deleteTail')}>Delete Tail</button>
       <button onClick={() => appendItem('delete')}>Delete</button>
+      <button onClick={() => appendItem('deleteAtIndex')}>
+        Delete at Index
+      </button>
       <button onClick={() => appendItem('reverse')}>Reverse</button>
     </>
   )

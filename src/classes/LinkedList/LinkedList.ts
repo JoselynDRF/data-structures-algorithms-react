@@ -67,7 +67,7 @@ class LinkedList {
    * @param insertIndex Insert index
    */
   insert(data: LinkedListData, insertIndex: number) {
-    let currentNode: ListNode = this.head
+    let currentNode = this.head
 
     if (insertIndex > 0 && currentNode) {
       const newNode = new LinkedListNode(data)
@@ -108,7 +108,7 @@ class LinkedList {
    * @param index Index
    */
   get(index: number) {
-    let currentNode: ListNode = this.head
+    let currentNode = this.head
 
     for (let i = 0; i < index; i++) {
       currentNode = currentNode?.next || null
@@ -149,7 +149,7 @@ class LinkedList {
    */
   delete(data: LinkedListData) {
     if (this.head) {
-      let currentNode: ListNode = this.head
+      let currentNode = this.head
 
       if (currentNode.data === data) {
         this.head = currentNode.next
@@ -163,6 +163,29 @@ class LinkedList {
         } else {
           currentNode = currentNode.next
         }
+      }
+    }
+  }
+
+  /**
+   * Deletes the node of the given index in the linked list
+   * @param index Index
+   */
+  deleteAtIndex(index: number) {
+    if (index === 0) {
+      return this.deleteHead()
+    }
+
+    if (index > 0) {
+      let currentNode = this.head
+
+      for (let i = 0; i < index - 1; i++) {
+        if (!currentNode) return
+        currentNode = currentNode.next
+      }
+
+      if (currentNode?.next) {
+        currentNode.next = currentNode.next.next
       }
     }
   }

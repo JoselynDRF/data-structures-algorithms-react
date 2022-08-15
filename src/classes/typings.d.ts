@@ -18,5 +18,6 @@ type LinkedListProps = {
   deleteHead: () => void
   deleteTail: () => void
   delete: (data: LinkedListData) => void
+  deleteAtIndex: (index: number) => void
   reverse: () => void
 }
